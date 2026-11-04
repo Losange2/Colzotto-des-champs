@@ -1,0 +1,52 @@
+/* ===== Colzotto des Champs : styles partagés ===== */
+:root{
+  --bg:#FFFDF5;--surface:#F6EFD6;--ink:#2A2216;--muted:#6B5E45;
+  --rape:#F2C418;--rape-ink:#2A2216;--field:#2F4A2B;--field-ink:#FFFDF5;--line:#E2D6AE;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#17150E;--surface:#221F13;--ink:#F5EFD8;--muted:#B9AD8A;--field:#6F9A5F;--field-ink:#15210F;--line:#3A3520;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#17150E;--surface:#221F13;--ink:#F5EFD8;--muted:#B9AD8A;--field:#6F9A5F;--field-ink:#15210F;--line:#3A3520;color-scheme:dark}
+
+html{scroll-padding-top:5rem;scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1;margin:0}
+h2{font-weight:800}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--field);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+.lead{max-width:60ch;color:var(--muted)}
+
+/* En-tête */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.7rem;padding-bottom:.7rem}
+.logo{font-family:Fraunces,Georgia,serif;font-weight:800;text-decoration:none;font-size:1.15rem}
+nav{display:flex;gap:1.1rem;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rape);text-decoration-thickness:3px;text-underline-offset:5px}
+.theme{font:inherit;background:none;border:2px solid var(--line);color:var(--ink);border-radius:999px;padding:.3rem .9rem;cursor:pointer}
+
+/* Bandeau jaune colza */
+.hero{background:var(--rape);color:var(--rape-ink)}
+.hero img{width:100%;height:auto;border-radius:1.5rem 1.5rem 1.5rem 0;display:block;box-shadow:10px 10px 0 var(--field)}
+.facts{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.5rem 0 0;padding:0;list-style:none}
+
+/* Composants */
+.ingr{background:var(--surface);border-radius:1.25rem;padding:1.75rem}
+.ingr ul{margin:0;padding:0;list-style:none}
+.ingr li{border-bottom:1px dashed var(--line)}
+.ingr li:last-child{border:0}
+ol.steps{margin:0;padding:0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 1.9rem 3.5rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:-.1rem;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--field);color:var(--field-ink);display:grid;place-items:center;font:800 1.1rem Fraunces,Georgia,serif}
+ol.steps h3{font-size:1.25rem;margin-bottom:.25rem}
+ol.steps p{margin:0 0 .4rem}
+.alt{background:var(--field);color:var(--field-ink)}
+.note{background:var(--surface);border-left:6px solid var(--rape);padding:1rem 1.25rem;border-radius:.5rem;margin-top:1.5rem}
+
+/* Pied de page */
+footer{background:var(--ink);color:var(--bg);padding:2.5rem 0;text-align:center}
+footer p{margin:.3rem 0}
